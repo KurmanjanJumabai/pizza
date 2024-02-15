@@ -18,7 +18,9 @@ class SmallText extends StatelessWidget {
     return Text(
       text,
       style: TextStyle(
-          color: color, fontFamily: 'Urbanist', fontSize: size, height: height),
+        color: color,
+        fontSize: size,
+      ),
     );
   }
 }

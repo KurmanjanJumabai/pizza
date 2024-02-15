@@ -54,9 +54,6 @@ class _CategoryPageState extends State<CategoryPage> {
                 ],
               ),
             ),
-            const SizedBox(
-              height: 15,
-            ),
             SingleChildScrollView(
               child: ListView.builder(
                   // physics: const NeverScrollableScrollPhysics(),
@@ -65,7 +62,7 @@ class _CategoryPageState extends State<CategoryPage> {
                   itemBuilder: (context, index) {
                     return Container(
                       margin: const EdgeInsets.only(
-                          left: 20, right: 20, bottom: 10),
+                          left: 10, right: 10, bottom: 10),
                       child: Row(
                         children: [
                           Container(
