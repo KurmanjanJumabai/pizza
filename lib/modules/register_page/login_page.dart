@@ -1,13 +1,14 @@
 import 'dart:async';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:pizza/modules/home/home.dart';
 import 'package:pizza/modules/register_page/facebook.dart';
 import 'package:pizza/modules/register_page/google.dart';
 import 'package:pizza/modules/register_page/home_page.dart';
-
 import 'package:pizza/modules/register_page/sign_up_page.dart';
+import 'package:pizza/theme/app_colors.dart';
+import 'package:pizza/theme/app_textstyle.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -22,6 +23,7 @@ class _LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
 
   bool _obscureText = true;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,10 +51,7 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       const Text(
                         "Войти в систему",
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 25,
-                            fontWeight: FontWeight.w700),
+                        style: AppTextStyle.bigTextStyle,
                       )
                     ],
                   ),
@@ -60,10 +59,7 @@ class _LoginPageState extends State<LoginPage> {
                 const SizedBox(height: 5),
                 const Text(
                   'Введите почту и пароль,',
-                  style: TextStyle(
-                      color: Color(0xff867878),
-                      fontSize: 14,
-                      fontWeight: FontWeight.w600),
+                  style: AppTextStyle.smallTextStyle,
                 ),
                 const Text('чтобы войти',
                     style: TextStyle(
@@ -76,10 +72,7 @@ class _LoginPageState extends State<LoginPage> {
                 const Padding(
                   padding: EdgeInsets.only(right: 170),
                   child: Text('Электронная почта',
-                      style: TextStyle(
-                          color: Color(0xff867878),
-                          fontSize: 14,
-                          fontWeight: FontWeight.w600)),
+                      style: AppTextStyle.smallTextStyle),
                 ),
                 const SizedBox(
                   height: 10,
@@ -91,7 +84,7 @@ class _LoginPageState extends State<LoginPage> {
                     width: 320,
                     child: Material(
                       elevation: 10,
-                      shadowColor: const Color(0xffef1c26),
+                      shadowColor: AppColors.elevatedButtonColor,
                       child: TextFormField(
                         controller: emailController,
                         validator: (value) {
@@ -104,22 +97,20 @@ class _LoginPageState extends State<LoginPage> {
                         },
                         decoration: InputDecoration(
                           filled: true,
-                          fillColor: const Color(0xfffefefe),
+                          fillColor: AppColors.textFormFieldColor,
                           focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(4),
                             borderSide: const BorderSide(
-                              color: Color(0xffef1c26),
+                              color: AppColors.elevatedButtonColor,
                             ),
                           ),
                           enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(4),
                               borderSide: const BorderSide(
-                                  color: Color(0xffef1c26), width: 0)),
+                                  color: AppColors.elevatedButtonColor,
+                                  width: 0)),
                           hintText: 'Введите электронную почту',
-                          hintStyle: const TextStyle(
-                              color: Color(0xff827777),
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500),
+                          hintStyle: AppTextStyle.smallTextStyle,
                         ),
                       ),
                     ),
@@ -130,11 +121,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 const Padding(
                   padding: EdgeInsets.only(right: 245),
-                  child: Text('Пароль',
-                      style: TextStyle(
-                          color: Color(0xff867878),
-                          fontSize: 14,
-                          fontWeight: FontWeight.w600)),
+                  child: Text('Пароль', style: AppTextStyle.smallTextStyle),
                 ),
                 const SizedBox(
                   height: 10,
@@ -146,7 +133,7 @@ class _LoginPageState extends State<LoginPage> {
                     width: 320,
                     child: Material(
                       elevation: 10,
-                      shadowColor: const Color(0xffef1c26),
+                      shadowColor: AppColors.elevatedButtonColor,
                       child: TextFormField(
                         obscureText: _obscureText,
                         controller: passwordController,
@@ -160,17 +147,18 @@ class _LoginPageState extends State<LoginPage> {
                         },
                         decoration: InputDecoration(
                           filled: true,
-                          fillColor: const Color(0xfffefefe),
+                          fillColor: AppColors.textFormFieldColor,
                           focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(4),
                             borderSide: const BorderSide(
-                              color: Color(0xffef1c26),
+                              color: AppColors.elevatedButtonColor,
                             ),
                           ),
                           enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(4),
                               borderSide: const BorderSide(
-                                  color: Color(0xffef1c26), width: 0)),
+                                  color: AppColors.elevatedButtonColor,
+                                  width: 0)),
                           suffixIcon: GestureDetector(
                             onTap: () {
                               setState(() {
@@ -181,12 +169,12 @@ class _LoginPageState extends State<LoginPage> {
                               _obscureText
                                   ? Icons.remove_red_eye_outlined
                                   : Icons.visibility_off_outlined,
-                              color: const Color(0xff827777),
+                              color: AppColors.smallTextColor,
                             ),
                           ),
                           hintText: 'Введите пароль',
                           hintStyle: const TextStyle(
-                              color: Color(0xff827777),
+                              color: AppColors.smallTextColor,
                               fontSize: 16,
                               fontWeight: FontWeight.w500),
                         ),
@@ -197,10 +185,7 @@ class _LoginPageState extends State<LoginPage> {
                 const SizedBox(height: 50),
                 const Text(
                   'Или войдите через',
-                  style: TextStyle(
-                      color: Color(0xff867878),
-                      fontSize: 14,
-                      fontWeight: FontWeight.w600),
+                  style: AppTextStyle.smallTextStyle,
                 ),
                 const SizedBox(
                   height: 20,
@@ -244,11 +229,11 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 const SizedBox(height: 50),
                 ElevatedButton(
-                    onPressed: () {
+                    onPressed: () async {
                       showDialog(
                           context: context,
                           builder: (context) {
-                            return Center(
+                            return const Center(
                               child: CircularProgressIndicator(),
                             );
                           });
@@ -273,9 +258,9 @@ class _LoginPageState extends State<LoginPage> {
                       // }
                     },
                     style: ElevatedButton.styleFrom(
-                        shadowColor: const Color(0xffef1c26),
+                        shadowColor: AppColors.elevatedButtonColor,
                         elevation: 10,
-                        backgroundColor: const Color(0xffEF1C26),
+                        backgroundColor: AppColors.elevatedButtonColor,
                         minimumSize: const Size(
                           320,
                           50,
@@ -292,10 +277,7 @@ class _LoginPageState extends State<LoginPage> {
                 const SizedBox(height: 30),
                 const Text(
                   "У вас нет учетной записи?",
-                  style: TextStyle(
-                      color: Color(0xff867878),
-                      fontSize: 14,
-                      fontWeight: FontWeight.w600),
+                  style: AppTextStyle.smallTextStyle,
                 ),
                 const SizedBox(
                   width: 5,
@@ -309,10 +291,7 @@ class _LoginPageState extends State<LoginPage> {
                   },
                   child: const Text(
                     'Зарегистрироваться',
-                    style: TextStyle(
-                        color: Color(0xffef1c26),
-                        fontSize: 14,
-                        fontWeight: FontWeight.w600),
+                    style: AppTextStyle.priceTextStyle,
                   ),
                 ),
               ],

@@ -4,6 +4,8 @@ import 'package:pizza/modules/home/home.dart';
 import 'package:pizza/modules/register_page/facebook.dart';
 import 'package:pizza/modules/register_page/google.dart';
 import 'package:pizza/modules/register_page/home_page.dart';
+import 'package:pizza/theme/app_colors.dart';
+import 'package:pizza/theme/app_textstyle.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
@@ -44,10 +46,7 @@ class _RegisterPageState extends State<SignUpPage> {
                     const Center(
                       child: Text(
                         "Регистрация",
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 28,
-                            fontWeight: FontWeight.w700),
+                        style: AppTextStyle.bigTextStyle,
                       ),
                     )
                   ],
@@ -56,26 +55,21 @@ class _RegisterPageState extends State<SignUpPage> {
               const SizedBox(height: 5),
               const Text(
                 'Заполните данные и создайте',
-                style: TextStyle(
-                    color: Color(0xff867878),
-                    fontSize: 14,
-                    fontWeight: FontWeight.w600),
+                style: AppTextStyle.smallTextStyle,
               ),
-              const Text('Новый Аккаунт',
-                  style: TextStyle(
-                      color: Color(0xff867878),
-                      fontSize: 14,
-                      fontWeight: FontWeight.w600)),
+              const Text(
+                'Новый Аккаунт',
+                style: AppTextStyle.smallTextStyle,
+              ),
               const SizedBox(
                 height: 40,
               ),
               const Padding(
                 padding: EdgeInsets.only(right: 170),
-                child: Text('Имя Пользователя',
-                    style: TextStyle(
-                        color: Color(0xff867878),
-                        fontSize: 14,
-                        fontWeight: FontWeight.w600)),
+                child: Text(
+                  'Имя Пользователя',
+                  style: AppTextStyle.smallTextStyle,
+                ),
               ),
               const SizedBox(
                 height: 10,
@@ -87,7 +81,7 @@ class _RegisterPageState extends State<SignUpPage> {
                   width: 320,
                   child: Material(
                     elevation: 10,
-                    shadowColor: const Color(0xffef1c26),
+                    shadowColor: AppColors.elevatedButtonColor,
                     child: TextFormField(
                       controller: nameController,
 
@@ -101,22 +95,20 @@ class _RegisterPageState extends State<SignUpPage> {
                       // },
                       decoration: InputDecoration(
                         filled: true,
-                        fillColor: const Color(0xfffefefe),
+                        fillColor: AppColors.textFormFieldColor,
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(4),
                           borderSide: const BorderSide(
-                            color: Color(0xffef1c26),
+                            color: AppColors.elevatedButtonColor,
                           ),
                         ),
                         enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(4),
                             borderSide: const BorderSide(
-                                color: Color(0xffef1c26), width: 0)),
+                                color: AppColors.elevatedButtonColor,
+                                width: 0)),
                         hintText: 'Введите имя',
-                        hintStyle: const TextStyle(
-                            color: Color(0xff827777),
-                            fontSize: 16,
-                            fontWeight: FontWeight.w500),
+                        hintStyle: AppTextStyle.smallTextStyle,
                       ),
                     ),
                   ),
@@ -127,11 +119,10 @@ class _RegisterPageState extends State<SignUpPage> {
               ),
               const Padding(
                 padding: EdgeInsets.only(right: 165),
-                child: Text('Электронная почта',
-                    style: TextStyle(
-                        color: Color(0xff867878),
-                        fontSize: 14,
-                        fontWeight: FontWeight.w600)),
+                child: Text(
+                  'Электронная почта',
+                  style: AppTextStyle.smallTextStyle,
+                ),
               ),
               const SizedBox(
                 height: 10,
@@ -143,7 +134,7 @@ class _RegisterPageState extends State<SignUpPage> {
                   width: 320,
                   child: Material(
                     elevation: 10,
-                    shadowColor: const Color(0xffef1c26),
+                    shadowColor: AppColors.elevatedButtonColor,
                     child: TextFormField(
                       controller: emailController,
 
@@ -157,22 +148,20 @@ class _RegisterPageState extends State<SignUpPage> {
                       // },
                       decoration: InputDecoration(
                         filled: true,
-                        fillColor: const Color(0xfffefefe),
+                        fillColor: AppColors.textFormFieldColor,
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(4),
                           borderSide: const BorderSide(
-                            color: Color(0xffef1c26),
+                            color: AppColors.elevatedButtonColor,
                           ),
                         ),
                         enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(4),
                             borderSide: const BorderSide(
-                                color: Color(0xffef1c26), width: 0)),
+                                color: AppColors.elevatedButtonColor,
+                                width: 0)),
                         hintText: 'Введите электронную почту',
-                        hintStyle: const TextStyle(
-                            color: Color(0xff827777),
-                            fontSize: 16,
-                            fontWeight: FontWeight.w500),
+                        hintStyle: AppTextStyle.smallTextStyle,
                       ),
                     ),
                   ),
@@ -183,11 +172,10 @@ class _RegisterPageState extends State<SignUpPage> {
               ),
               const Padding(
                 padding: EdgeInsets.only(right: 245),
-                child: Text('Пароль',
-                    style: TextStyle(
-                        color: Color(0xff867878),
-                        fontSize: 14,
-                        fontWeight: FontWeight.w600)),
+                child: Text(
+                  'Пароль',
+                  style: AppTextStyle.smallTextStyle,
+                ),
               ),
               const SizedBox(
                 height: 10,
@@ -199,7 +187,7 @@ class _RegisterPageState extends State<SignUpPage> {
                   width: 320,
                   child: Material(
                     elevation: 10,
-                    shadowColor: const Color(0xffef1c26),
+                    shadowColor: AppColors.elevatedButtonColor,
                     child: TextFormField(
                       obscureText: _obscureText,
                       controller: passwordController,
@@ -213,17 +201,18 @@ class _RegisterPageState extends State<SignUpPage> {
                       // },
                       decoration: InputDecoration(
                         filled: true,
-                        fillColor: const Color(0xfffefefe),
+                        fillColor: AppColors.textFormFieldColor,
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(4),
                           borderSide: const BorderSide(
-                            color: Color(0xffef1c26),
+                            color: AppColors.elevatedButtonColor,
                           ),
                         ),
                         enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(4),
                             borderSide: const BorderSide(
-                                color: Color(0xffef1c26), width: 0)),
+                                color: AppColors.elevatedButtonColor,
+                                width: 0)),
                         suffixIcon: GestureDetector(
                           onTap: () {
                             setState(() {
@@ -239,10 +228,7 @@ class _RegisterPageState extends State<SignUpPage> {
                           ),
                         ),
                         hintText: 'Введите пароль',
-                        hintStyle: const TextStyle(
-                            color: Color(0xff827777),
-                            fontSize: 16,
-                            fontWeight: FontWeight.w500),
+                        hintStyle: AppTextStyle.smallTextStyle,
                       ),
                     ),
                   ),
@@ -291,9 +277,9 @@ class _RegisterPageState extends State<SignUpPage> {
                     // }
                   },
                   style: ElevatedButton.styleFrom(
-                      shadowColor: const Color(0xffef1c26),
+                      shadowColor: AppColors.elevatedButtonColor,
                       elevation: 10,
-                      backgroundColor: const Color(0xffEF1C26),
+                      backgroundColor: AppColors.elevatedButtonColor,
                       minimumSize: const Size(
                         320,
                         50,
