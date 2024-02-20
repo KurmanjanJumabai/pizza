@@ -19,7 +19,7 @@ class BigText extends StatelessWidget {
       text,
       maxLines: 1,
       overflow: overflow,
-      style: TextStyle(color: color, fontWeight: FontWeight.w400, fontSize: 15),
+      style: TextStyle(color: color, fontWeight: FontWeight.w700, fontSize: 18),
     );
   }
 }

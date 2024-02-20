@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 class SmallText extends StatelessWidget {
   SmallText(
       {super.key,
-      this.color = const Color(0xffccc7c5),
-      this.size = 12,
+      this.color = const Color(0xff867878),
+      this.size = 15,
       this.height = 1.2,
       required this.text});
   Color? color;
