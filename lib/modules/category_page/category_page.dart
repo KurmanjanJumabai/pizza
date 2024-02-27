@@ -47,31 +47,35 @@ class _CategoryPageState extends State<CategoryPage> {
                 height: 15,
               ),
               const TextFormFieldButton(),
-              const SizedBox(
-                height: 15,
+              SizedBox(
+                height: 5,
               ),
-              // ListView.builder(
-              //     shrinkWrap: true,
-              //     scrollDirection: Axis.horizontal,
-              //     itemCount: 6,
-              //     itemBuilder: ((context, index) {
-              //       return Padding(
-              //           padding:
-              //               EdgeInsets.symmetric(vertical: 16, horizontal: 8),
-              //           child: ChoiceChip(
-              //             side:
-              //                 BorderSide(color: AppColors.elevatedButtonColor),
-              //             backgroundColor: Colors.white,
-              //             selectedColor: AppColors.elevatedButtonColor,
-              //             label: Text('Margarita'),
-              //             labelStyle: AppTextStyle.smallTextStyle,
-              //             selected: selectedIndex == index,
-              //             onSelected: (value) {
-              //               selectedIndex = index;
-              //               setState(() {});
-              //             },
-              //           ));
-              //     })),
+
+              // SizedBox(
+              //   height: MediaQuery.of(context).size.height * 0.1,
+              //   child: ListView.builder(
+              //       shrinkWrap: true,
+              //       scrollDirection: Axis.horizontal,
+              //       itemCount: 6,
+              //       itemBuilder: ((context, index) {
+              //         return Padding(
+              //             padding:
+              //                 EdgeInsets.symmetric(vertical: 10, horizontal: 8),
+              //             child: ChoiceChip(
+              //               side: BorderSide(
+              //                   color: AppColors.elevatedButtonColor),
+              //               backgroundColor: Colors.white,
+              //               selectedColor: AppColors.elevatedButtonColor,
+              //               label: Text('Margarita'),
+              //               labelStyle: AppTextStyle.smallTextStyle,
+              //               selected: selectedIndex == index,
+              //               onSelected: (value) {
+              //                 selectedIndex = index;
+              //                 setState(() {});
+              //               },
+              //             ));
+              //       })),
+              // ),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
@@ -86,6 +90,7 @@ class _CategoryPageState extends State<CategoryPage> {
                 ),
               ),
               ListView.builder(
+                  scrollDirection: Axis.vertical,
                   shrinkWrap: true,
                   itemCount: 10,
                   itemBuilder: (context, index) {
@@ -96,7 +101,9 @@ class _CategoryPageState extends State<CategoryPage> {
                               builder: (context) => GooglePage())),
                       child: Container(
                         margin: const EdgeInsets.only(
-                            left: 20, right: 20, bottom: 10),
+                          left: 10,
+                          right: 10,
+                        ),
                         child: Card(
                           color: Color(0xffEEEEEE),
                           child: Row(
