@@ -6,6 +6,7 @@ import 'package:pizza/companes/widgets/small_text_widget.dart';
 import 'package:pizza/companes/widgets/text_form_field_button.dart';
 import 'package:pizza/data/category_models.dart';
 import 'package:pizza/modules/register_page/google.dart';
+import 'package:pizza/theme/app_colors.dart';
 import 'package:pizza/theme/app_textstyle.dart';
 
 class CategoryPage extends StatefulWidget {
@@ -16,6 +17,8 @@ class CategoryPage extends StatefulWidget {
 }
 
 class _CategoryPageState extends State<CategoryPage> {
+  bool isSelected = true;
+  int selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +32,9 @@ class _CategoryPageState extends State<CategoryPage> {
                 child: Row(
                   children: [
                     IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
                         icon: const Icon(Icons.arrow_back_ios)),
                     const Text(
                       'Категории',
@@ -45,6 +50,28 @@ class _CategoryPageState extends State<CategoryPage> {
               const SizedBox(
                 height: 15,
               ),
+              // ListView.builder(
+              //     shrinkWrap: true,
+              //     scrollDirection: Axis.horizontal,
+              //     itemCount: 6,
+              //     itemBuilder: ((context, index) {
+              //       return Padding(
+              //           padding:
+              //               EdgeInsets.symmetric(vertical: 16, horizontal: 8),
+              //           child: ChoiceChip(
+              //             side:
+              //                 BorderSide(color: AppColors.elevatedButtonColor),
+              //             backgroundColor: Colors.white,
+              //             selectedColor: AppColors.elevatedButtonColor,
+              //             label: Text('Margarita'),
+              //             labelStyle: AppTextStyle.smallTextStyle,
+              //             selected: selectedIndex == index,
+              //             onSelected: (value) {
+              //               selectedIndex = index;
+              //               setState(() {});
+              //             },
+              //           ));
+              //     })),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
@@ -59,8 +86,6 @@ class _CategoryPageState extends State<CategoryPage> {
                 ),
               ),
               ListView.builder(
-
-                  // physics: NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
                   itemCount: 10,
                   itemBuilder: (context, index) {
@@ -72,53 +97,57 @@ class _CategoryPageState extends State<CategoryPage> {
                       child: Container(
                         margin: const EdgeInsets.only(
                             left: 20, right: 20, bottom: 10),
-                        child: Row(
-                          children: [
-                            //image container
-                            Container(
-                              width: 150,
-                              height: 130,
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(20),
-                                  color: Colors.red,
-                                  image: DecorationImage(
-                                      fit: BoxFit.cover,
-                                      image: AssetImage(
-                                        categoryList[index].image,
-                                      ))),
-                            ),
-                            SizedBox(width: 15),
-                            // text container
-                            Expanded(
-                              child: Container(
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    BigText(
-                                      text: categoryList[index].text,
-                                    ),
-                                    const SizedBox(
-                                      height: 15,
-                                    ),
-                                    SmallText(
-                                      text: 'Описание пиццы',
-                                      //text: categoryList[index].description
-                                    ),
-                                    const SizedBox(
-                                      height: 15,
-                                    ),
-                                    Text(
-                                      '650 c',
-                                      //categoryList[index].price,
-                                      style: AppTextStyle.smallTextStyle,
-                                    )
-                                  ],
+                        child: Card(
+                          color: Color(0xffEEEEEE),
+                          child: Row(
+                            children: [
+                              //image container
+                              Container(
+                                width: 150,
+                                height: 130,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(20),
+                                    color: Colors.red,
+                                    image: DecorationImage(
+                                        fit: BoxFit.cover,
+                                        image: AssetImage(
+                                          categoryList[index].image,
+                                        ))),
+                              ),
+                              SizedBox(width: 15),
+                              // text container
+                              Expanded(
+                                child: Container(
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      BigText(
+                                        text: categoryList[index].text,
+                                      ),
+                                      const SizedBox(
+                                        height: 15,
+                                      ),
+                                      SmallText(
+                                        text: 'Описание пиццы',
+                                        //text: categoryList[index].description
+                                      ),
+                                      const SizedBox(
+                                        height: 15,
+                                      ),
+                                      Text(
+                                        '650 c',
+                                        //categoryList[index].price,
+                                        style: AppTextStyle.smallTextStyle,
+                                      )
+                                    ],
+                                  ),
                                 ),
                               ),
-                            ),
 
-                            // )
-                          ],
+                              // )
+                            ],
+                          ),
                         ),
                       ),
                     );

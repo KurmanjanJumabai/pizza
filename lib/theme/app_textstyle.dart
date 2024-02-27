@@ -7,6 +7,6 @@ class AppTextStyle {
       color: Color.fromARGB(255, 96, 62, 62),
       fontSize: 14,
       fontWeight: FontWeight.w600);
-  static const priceTextStyle = TextStyle(
-      color: Color(0xffef1c26), fontSize: 14, fontWeight: FontWeight.w600);
+  static const priceTextStyle =
+      TextStyle(color: Colors.green, fontSize: 14, fontWeight: FontWeight.w600);
 }

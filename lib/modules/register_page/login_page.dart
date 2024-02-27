@@ -31,21 +31,26 @@ class _LoginPageState extends State<LoginPage> {
         child: Form(
           key: _formKey,
           child: Padding(
-            padding: const EdgeInsets.all(20),
+            padding: const EdgeInsets.all(0),
             child: Column(
               children: [
+                Container(
+                    child: Image.asset(
+                  'assets/cezar.webp',
+                  fit: BoxFit.fill,
+                )),
                 Padding(
-                  padding: const EdgeInsets.only(top: 70),
+                  padding: const EdgeInsets.only(top: 30),
                   child: Row(
                     children: [
-                      IconButton(
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
-                          icon: const Icon(
-                            Icons.arrow_back_ios,
-                            color: Colors.black,
-                          )),
+                      // IconButton(
+                      //     onPressed: () {
+                      //       Navigator.pop(context);
+                      //     },
+                      //     icon: const Icon(
+                      //       Icons.arrow_back_ios,
+                      //       color: Colors.black,
+                      //     )),
                       const SizedBox(
                         width: 25,
                       ),
@@ -56,62 +61,56 @@ class _LoginPageState extends State<LoginPage> {
                     ],
                   ),
                 ),
-                const SizedBox(height: 5),
-                const Text(
-                  'Введите почту и пароль,',
-                  style: AppTextStyle.smallTextStyle,
-                ),
-                const Text('чтобы войти',
-                    style: TextStyle(
-                        color: Color(0xff867878),
-                        fontSize: 14,
-                        fontWeight: FontWeight.w600)),
+                // const SizedBox(height: 5),
+                // const Text(
+                //   'Введите почту и пароль,',
+                //   style: AppTextStyle.smallTextStyle,
+                // ),
+                // const Text('чтобы войти',
+                //     style: TextStyle(
+                //         color: Color(0xff867878),
+                //         fontSize: 14,
+                //         fontWeight: FontWeight.w600)),
                 const SizedBox(
                   height: 40,
                 ),
-                const Padding(
-                  padding: EdgeInsets.only(right: 170),
-                  child: Text('Электронная почта',
-                      style: AppTextStyle.smallTextStyle),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
+                // const Padding(
+                //   padding: EdgeInsets.only(right: 170),
+                //   child: Text('Электронная почта',
+                //       style: AppTextStyle.smallTextStyle),
+                // ),
+                // const SizedBox(
+                //   height: 10,
+                // ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: SizedBox(
                     height: 50,
-                    width: 320,
-                    child: Material(
-                      elevation: 10,
-                      shadowColor: AppColors.elevatedButtonColor,
-                      child: TextFormField(
-                        controller: emailController,
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'Электронная почта не может быть пустой';
-                          } else if (value != emailController) {
-                            return 'Неправильная электронная почта';
-                          }
-                          return null;
-                        },
-                        decoration: InputDecoration(
-                          filled: true,
-                          fillColor: AppColors.textFormFieldColor,
-                          focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(4),
-                            borderSide: const BorderSide(
-                              color: AppColors.elevatedButtonColor,
-                            ),
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(4),
-                              borderSide: const BorderSide(
-                                  color: AppColors.elevatedButtonColor,
-                                  width: 0)),
-                          hintText: 'Введите электронную почту',
-                          hintStyle: AppTextStyle.smallTextStyle,
-                        ),
+                    width: 370,
+                    child: TextFormField(
+                      controller: emailController,
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Электронная почта не может быть пустой';
+                        } else if (value != emailController) {
+                          return 'Неправильная электронная почта';
+                        }
+                        return null;
+                      },
+                      decoration: InputDecoration(
+                        filled: true,
+                        fillColor: AppColors.textFormFieldColor,
+                        focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(30),
+                            borderSide: BorderSide.none),
+                        enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(30),
+                            borderSide: BorderSide.none),
+                        hintText: 'Введите электронную почту',
+                        hintStyle: TextStyle(
+                            color: AppColors.smallTextColor,
+                            fontSize: 15,
+                            fontWeight: FontWeight.w500),
                       ),
                     ),
                   ),
@@ -119,114 +118,105 @@ class _LoginPageState extends State<LoginPage> {
                 const SizedBox(
                   height: 30,
                 ),
-                const Padding(
-                  padding: EdgeInsets.only(right: 245),
-                  child: Text('Пароль', style: AppTextStyle.smallTextStyle),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
+                // const Padding(
+                //   padding: EdgeInsets.only(right: 245),
+                //   child: Text('Пароль', style: AppTextStyle.smallTextStyle),
+                // ),
+                // const SizedBox(
+                //   height: 10,
+                // ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: SizedBox(
                     height: 50,
-                    width: 320,
-                    child: Material(
-                      elevation: 10,
-                      shadowColor: AppColors.elevatedButtonColor,
-                      child: TextFormField(
-                        obscureText: _obscureText,
-                        controller: passwordController,
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'Пароль не может быть пустым';
-                          } else if (value != passwordController) {
-                            return 'Неправильный пароль';
-                          }
-                          return null;
-                        },
-                        decoration: InputDecoration(
-                          filled: true,
-                          fillColor: AppColors.textFormFieldColor,
-                          focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(4),
-                            borderSide: const BorderSide(
-                              color: AppColors.elevatedButtonColor,
-                            ),
+                    width: 370,
+                    child: TextFormField(
+                      obscureText: _obscureText,
+                      controller: passwordController,
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Пароль не может быть пустым';
+                        } else if (value != passwordController) {
+                          return 'Неправильный пароль';
+                        }
+                        return null;
+                      },
+                      decoration: InputDecoration(
+                        filled: true,
+                        fillColor: AppColors.textFormFieldColor,
+                        focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(30),
+                            borderSide: BorderSide.none),
+                        enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(30),
+                            borderSide: BorderSide.none),
+                        suffixIcon: GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              _obscureText = !_obscureText;
+                            });
+                          },
+                          child: Icon(
+                            _obscureText
+                                ? Icons.remove_red_eye_outlined
+                                : Icons.visibility_off_outlined,
+                            color: AppColors.smallTextColor,
                           ),
-                          enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(4),
-                              borderSide: const BorderSide(
-                                  color: AppColors.elevatedButtonColor,
-                                  width: 0)),
-                          suffixIcon: GestureDetector(
-                            onTap: () {
-                              setState(() {
-                                _obscureText = !_obscureText;
-                              });
-                            },
-                            child: Icon(
-                              _obscureText
-                                  ? Icons.remove_red_eye_outlined
-                                  : Icons.visibility_off_outlined,
-                              color: AppColors.smallTextColor,
-                            ),
-                          ),
-                          hintText: 'Введите пароль',
-                          hintStyle: const TextStyle(
-                              color: AppColors.smallTextColor,
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500),
                         ),
+                        hintText: 'Введите пароль',
+                        hintStyle: const TextStyle(
+                            color: AppColors.smallTextColor,
+                            fontSize: 15,
+                            fontWeight: FontWeight.w500),
                       ),
                     ),
                   ),
                 ),
-                const SizedBox(height: 50),
-                const Text(
-                  'Или войдите через',
-                  style: AppTextStyle.smallTextStyle,
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    InkWell(
-                      onTap: () {
-                        // setState(() {
-                        //   AuthService().signInWithGoogle();
-                        //   Navigator.push(
-                        //       context,
-                        //       MaterialPageRoute(
-                        //           builder: (context) => GooglePage()));
-                        // });
-                      },
-                      child: Image.asset(
-                        'assets/google.png',
-                        scale: 25,
-                      ),
-                    ),
-                    const SizedBox(
-                      width: 40,
-                    ),
-                    InkWell(
-                      onTap: () {
-                        setState(() {
-                          // Navigator.push(
-                          //     context,
-                          //     MaterialPageRoute(
-                          //         builder: (context) => FacebookPage()));
-                        });
-                      },
-                      child: Image.asset(
-                        'assets/facebook.png',
-                        scale: 12,
-                      ),
-                    ),
-                  ],
-                ),
+                // const SizedBox(height: 50),
+                // const Text(
+                //   'Или войдите через',
+                //   style: AppTextStyle.smallTextStyle,
+                // ),
+                // const SizedBox(
+                //   height: 20,
+                // ),
+                // Row(
+                //   mainAxisAlignment: MainAxisAlignment.center,
+                //   children: [
+                //     InkWell(
+                //       onTap: () {
+                //         // setState(() {
+                //         //   AuthService().signInWithGoogle();
+                //         //   Navigator.push(
+                //         //       context,
+                //         //       MaterialPageRoute(
+                //         //           builder: (context) => GooglePage()));
+                //         // });
+                //       },
+                //       child: Image.asset(
+                //         'assets/google.png',
+                //         scale: 25,
+                //       ),
+                //     ),
+                //     const SizedBox(
+                //       width: 40,
+                //     ),
+                //     InkWell(
+                //       onTap: () {
+                //         setState(() {
+                //           // Navigator.push(
+                //           //     context,
+                //           //     MaterialPageRoute(
+                //           //         builder: (context) => FacebookPage()));
+                //         });
+                //       },
+                //       child: Image.asset(
+                //         'assets/facebook.png',
+                //         scale: 12,
+                //       ),
+                //     ),
+                //   ],
+                // ),
                 const SizedBox(height: 50),
                 ElevatedButton(
                     onPressed: () async {
@@ -258,15 +248,13 @@ class _LoginPageState extends State<LoginPage> {
                       // }
                     },
                     style: ElevatedButton.styleFrom(
-                        shadowColor: AppColors.elevatedButtonColor,
-                        elevation: 10,
                         backgroundColor: AppColors.elevatedButtonColor,
                         minimumSize: const Size(
-                          320,
+                          370,
                           50,
                         ),
-                        shape: BeveledRectangleBorder(
-                            borderRadius: BorderRadius.circular(3))),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30))),
                     child: const Text(
                       'Войти',
                       style: TextStyle(
@@ -274,7 +262,7 @@ class _LoginPageState extends State<LoginPage> {
                           fontWeight: FontWeight.w500,
                           color: Colors.white),
                     )),
-                const SizedBox(height: 30),
+                const SizedBox(height: 50),
                 const Text(
                   "У вас нет учетной записи?",
                   style: AppTextStyle.smallTextStyle,

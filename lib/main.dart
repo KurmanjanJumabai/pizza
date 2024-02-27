@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:pizza/modules/category_page/category_page.dart';
 import 'package:pizza/modules/register_page/auth_page/auth_page.dart';
+import 'package:pizza/modules/register_page/login_page.dart';
 import 'firebase_options.dart';
 import 'package:flutter/material.dart';
 import 'package:pizza/modules/register_page/initial_page.dart';
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const CategoryPage(),
+      home: const LoginPage(),
     );
   }
 }
