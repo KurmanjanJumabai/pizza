@@ -41,6 +41,7 @@ dependencies:
   firebase_auth: ^4.10.1
   email_validator: ^2.1.17
   shared_preferences: ^2.2.2
+  animate_do: ^3.3.3
   
 
 

@@ -92,7 +92,7 @@ class _CategoryPageState extends State<CategoryPage> {
               ListView.builder(
                   scrollDirection: Axis.vertical,
                   shrinkWrap: true,
-                  itemCount: 10,
+                  itemCount: 6,
                   itemBuilder: (context, index) {
                     return InkWell(
                       onTap: () => Navigator.push(

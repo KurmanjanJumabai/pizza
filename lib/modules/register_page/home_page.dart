@@ -10,14 +10,14 @@ class HomePage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Home Page'),
+        title: const Text('Home Page'),
       ),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.only(left: 80),
           child: Text(
-            'Добро пожаловать! ' + user.email!,
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+            'Добро пожаловать! ${user.email!}',
+            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
           ),
         ),
       ),

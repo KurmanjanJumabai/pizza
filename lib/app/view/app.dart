@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pizza/modules/birinchi_page/view/birinchi_view.dart';
+
+import 'package:pizza/modules/birinchi_page/view/first_list.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -7,7 +8,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: BirinchiView(),
+      home: FirstPage(),
       //  home: BirinchiView(),
     );
   }
